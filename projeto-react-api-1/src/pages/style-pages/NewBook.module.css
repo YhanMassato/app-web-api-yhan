@@ -1,6 +1,6 @@
 .newBook_container{
+
     width: 100%;
-    margin: 0 auto;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
@@ -8,6 +8,7 @@
     align-items: center;
     padding: 4em;
     background-color: white;
+
 }
 
 .newBook_container h1{
@@ -16,11 +17,12 @@
 }
 
 .newBook_container h1 span{
+    color: #7733ff;
     padding: 0 .2em;
-    color: purple;
 }
 
 .newBook_container img{
+
     width: 350px;
     margin: 2em 0;
 }

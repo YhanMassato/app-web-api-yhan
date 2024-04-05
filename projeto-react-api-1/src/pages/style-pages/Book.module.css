@@ -1,13 +1,14 @@
 .book_container{
+
     width: 100%;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
     justify-content: center;
     align-items: center;
     padding: 4em;
     background-color: white;
+
 }
 
 .book_container h1{
@@ -16,11 +17,12 @@
 }
 
 .book_container h1 span{
+    color: #7733ff;
     padding: 0 .2em;
-    color: purple;
 }
 
 .book_container img{
+
     width: 350px;
     margin: 2em 0;
 }
