@@ -1,5 +1,32 @@
 {
-  "books": [],
+  "books": [
+    {
+      "id": "0913",
+      "nome_livro": "aaaaaaaaaaaaa",
+      "nome_autor": "sssssssssss",
+      "descricao_livro": "sddasd"
+    },
+    {
+      "id": "3735",
+      "nome_livro": "aaaaaaaaaaaaa",
+      "nome_autor": "sssssssssss",
+      "descricao_livro": "sddasd",
+      "category": {
+        "id": "categoria_id",
+        "category": "BACK END"
+      }
+    },
+    {
+      "id": "bc3a",
+      "nome_livro": "asdawd",
+      "nome_autor": "asdas",
+      "descricao_livro": "asda",
+      "category": {
+        "id": "categoria_id",
+        "category": "BACK END"
+      }
+    }
+  ],
   "categories": [
     {
       "id": "1",

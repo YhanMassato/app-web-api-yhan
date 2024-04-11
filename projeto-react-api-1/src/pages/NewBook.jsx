@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Input from '../components/Form/Input'
 import styles from './style-pages/NewBook.module.css'
 import Select from '../components/Form/Select'
@@ -8,6 +9,8 @@ export default function NewBook(){
 
 
     const [categories, setCategories] = useState([]);
+    const [book, setBook] = useState({});
+    const navigate = useNavigate()
 
 
     useEffect(() => {
@@ -31,37 +34,86 @@ export default function NewBook(){
                 console.log(error)
             }
         )}, [])
+
+    function handlerChangerBook(event){
+        setBook({...book, [event.target.name] : event.target.value})
+        console.log(book)
+    }
+
+    function handlerChangerCategory(event){
+        setBook({...book, category:{
+            id: event.target.name,
+            category: event.target.options[event.target.selectedIndex].text
+        }})
+        // console.log(book)
+    }
+
+    function createBook(book){
+        fetch('http://localhost:5000/books',
+        {
+            method:'POST',
+            headers:{'Content-Type' : 'appliation/json'}
+        ,
+        body: JSON.stringify(book)
+    })
+        .then(
+            (resp)=>resp.json()
+        )
+        .then(
+            (data) => {
+                console.log(data)
+                navigate('/book')
+            })
+
+        .catch(
+            (error) => {
+                console.log(error)
+            }
+        )
+    }
+
+    function submit(event){
+        event.preventDefault()
+        createBook(book)
+    }
     
     return(
         <section className={styles.newBook_container}>
             <h1>Nova página de cadastro de livro</h1>
 
-            <form>
+            <form onSubmit={submit}>
                 <Input 
                     type="text"
                     id="nome_livro"
+                    name="nome_livro"
                     placeholder="digite o titulo do livro"
                     text="digite o titulo do livro"
+                    handlerOnChange={handlerChangerBook}
                 />
 
                 <Input 
                     type="text"
+                    name="nome_autor"
                     id="nome_autor"
                     placeholder="digite o titulo do autor"
                     text="digite o titulo do autor"
+                    handlerOnChange={handlerChangerBook}
                 />
 
                 <Input 
                     type="text"
+                    name="descricao_livro"
                     id="descricao_livro"
                     placeholder="digite a descricao do livro"
                     text="digite a descricao do livro"
+                    handlerOnChange={handlerChangerBook}
                 />
 
                 <Select
+                handlerOnChange={handlerChangerCategory}
                 name="categoria_id"
                 text="selecione a categoria do livro"
-                option={categories}
+                options={categories}
                 />
 
                 <input 

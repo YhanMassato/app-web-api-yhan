@@ -7,7 +7,7 @@ export default function Select({ text, name, options, handlerOnChange, value}){
 
             <label htmlFor={name}>{text}</label>
 
-            <select name={name} id={name} >
+            <select name={name} id={name} onChange={handlerOnChange}>
             <option>SELECIONE UMA CATEGORIA</option>
             {
                 options.map((option)=>(
