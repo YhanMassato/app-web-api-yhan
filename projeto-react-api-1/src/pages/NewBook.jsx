@@ -62,7 +62,7 @@ export default function NewBook(){
         .then(
             (data) => {
                 console.log(data)
-                navigate('/book')
+                navigate('/book',{state:"Livro cadastrado com sucesso "})
             })
 
         .catch(
