@@ -23,7 +23,7 @@ export default function NavBar(){
                 </ul>
             </Container>
 
-            <Outlet></Outlet>
+            <Outlet/>
         </div>
     )
 }

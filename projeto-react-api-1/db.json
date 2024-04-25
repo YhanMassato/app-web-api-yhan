@@ -11,20 +11,14 @@
       }
     },
     {
-      "id": "13d4",
-      "nome_livro": "ads",
-      "nome_autor": "aas",
-      "descricao_livro": "sdad",
+      "id": "255f",
+      "nome_livro": "Lá mehores mitadas del 2021",
+      "nome_autor": "EL CAPONE",
+      "descricao_livro": "Las mehores del capone atualizadas y cambiadas  de lo Mexico!",
       "category": {
         "id": "categoria_id",
-        "category": "BACK END"
+        "category": "ficção científica"
       }
-    },
-    {
-      "id": "acdc",
-      "nome_livro": "aa",
-      "nome_autor": "sss",
-      "descricao_livro": "ddd"
     }
   ],
   "categories": [
