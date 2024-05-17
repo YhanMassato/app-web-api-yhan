@@ -1,4 +1,6 @@
 import styles from "./BookCard.module.css"
+import { Link } from "react-router-dom";
+
 
 export default function BookCard({id, livro, autor, categoria, handlerRemove}){
 
@@ -18,6 +20,10 @@ export default function BookCard({id, livro, autor, categoria, handlerRemove}){
             </p>
 
             <div className={styles.book_card_actions}>
+                <Link to={`/bookEdit/${id}`}>
+                    Editar
+                </Link>
+
                 <button onClick={remove}>Excluir</button>
             </div>
         

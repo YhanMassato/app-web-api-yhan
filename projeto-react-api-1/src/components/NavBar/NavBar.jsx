@@ -20,6 +20,7 @@ export default function NavBar(){
                     <li className={styles.item}> 
                         <Link to='/newbook'>REGISTER BOOK</Link>
                     </li>
+
                 </ul>
                 
             <Outlet/>

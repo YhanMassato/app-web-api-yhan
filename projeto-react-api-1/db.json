@@ -1,5 +1,16 @@
 {
-  "books": [],
+  "books": [
+    {
+      "id": "9303",
+      "nome_livro": "O livro que será deletado",
+      "nome_autor": "O autor ",
+      "descricao_livro": "A descriçao é certamente uma ótima escolha",
+      "category": {
+        "id": "categoria_id",
+        "category": "BACK END"
+      }
+    }
+  ],
   "categories": [
     {
       "id": "1",
