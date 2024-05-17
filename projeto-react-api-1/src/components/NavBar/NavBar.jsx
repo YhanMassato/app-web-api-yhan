@@ -21,9 +21,10 @@ export default function NavBar(){
                         <Link to='/newbook'>REGISTER BOOK</Link>
                     </li>
                 </ul>
+                
+            <Outlet/>
             </Container>
 
-            <Outlet/>
         </div>
     )
 }

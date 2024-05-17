@@ -37,7 +37,7 @@ export default function NewBook(){
 
     function handlerChangerBook(event){
         setBook({...book, [event.target.name] : event.target.value})
-        console.log(book)
+        // console.log(book)
     }
 
     function handlerChangerCategory(event){

@@ -1,26 +1,5 @@
 {
-  "books": [
-    {
-      "id": "1fcf",
-      "nome_livro": "O céu dos livros",
-      "nome_autor": "Isaac Azimov",
-      "descricao_livro": "O livro é poggers",
-      "category": {
-        "id": "categoria_id",
-        "category": "ficção científica"
-      }
-    },
-    {
-      "id": "255f",
-      "nome_livro": "Lá mehores mitadas del 2021",
-      "nome_autor": "EL CAPONE",
-      "descricao_livro": "Las mehores del capone atualizadas y cambiadas  de lo Mexico!",
-      "category": {
-        "id": "categoria_id",
-        "category": "ficção científica"
-      }
-    }
-  ],
+  "books": [],
   "categories": [
     {
       "id": "1",
