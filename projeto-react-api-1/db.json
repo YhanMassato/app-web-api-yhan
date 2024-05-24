@@ -2,12 +2,22 @@
   "books": [
     {
       "id": "9303",
-      "nome_livro": "O livro que será deletado",
-      "nome_autor": "O autor ",
+      "nome_livro": "O livro que será deletado22",
+      "nome_autor": "O autor23aa",
       "descricao_livro": "A descriçao é certamente uma ótima escolha",
       "category": {
         "id": "categoria_id",
-        "category": "BACK END"
+        "category": "BANCO DE DADOS"
+      }
+    },
+    {
+      "id": "e9d8",
+      "nome_livro": "Sou um livro ",
+      "nome_autor": "LuanEscreveLivro",
+      "descricao_livro": "Escrito por Luan~",
+      "category": {
+        "id": "categoria_id",
+        "category": "ficção científica"
       }
     }
   ],
