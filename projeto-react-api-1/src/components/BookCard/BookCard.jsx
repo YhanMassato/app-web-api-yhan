@@ -20,7 +20,7 @@ export default function BookCard({id, livro, autor, categoria, handlerRemove}){
             </p>
 
             <div className={styles.book_card_actions}>
-                <Link to={`/bookEdit/${id}`}>
+                <Link to={`/listagemLivro/${id}`}>
                     Editar
                 </Link>
 

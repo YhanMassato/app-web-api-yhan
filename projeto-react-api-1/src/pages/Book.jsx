@@ -12,14 +12,17 @@ export default function Book(){
     const [bookMessage, setBookMessage] = useState("")
 
     useEffect(()=>{
-        fetch('http://localhost:5000/books',{
+        fetch('http://localhost:5000/listagemLivros',{
             method : 'GET',
+            mode:'cors',
             headers: {
-                'content-type':'application/json'
+                'content-type':'application/json',
+                'Acess-Control-Allow-Origin': '*',
+                'Acess-Control-Allow-Headers': '*'
         },
         })
         .then((resp) => resp.json())
-        .then((data) => {setBooks(data)})
+        .then((data) => {setBooks(data.data)})
         .catch((err) => {console.log(err)})
 },[]);
 
@@ -27,7 +30,7 @@ export default function Book(){
 
 
     const remove = (id) =>{
-        fetch(`http://localhost:5000/books/${id}`,{
+        fetch(`http://localhost:5000/excluirLivro/${id}`,{
             method : 'DELETE',
             headers: {
                 'content-type':'application/json'
@@ -71,12 +74,12 @@ export default function Book(){
 
             {
                 books.map((book) =>(
-                        <div key={book.id}>
+                        <div key={book.id_livro}>
                             <BookCard
-                            id={book.id}
+                            id={book.id_livro}
                             livro={book.nome_livro}
-                            autor={book.nome_autor}
-                            categoria={book.category.category}
+                            autor={book.autor_livro}
+                            // categoria={book.category.category}
                             handlerRemove={remove}
                             />
                         </div>
