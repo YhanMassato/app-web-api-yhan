@@ -8,51 +8,65 @@ import Select from '../components/Form/Select'
 export default function NewBook(){
 
 
-    const [categories, setCategories] = useState([]);
+    // const [categories, setCategories] = useState([]);
     const [book, setBook] = useState({});
     const navigate = useNavigate()
 
+    ///////
+    // Tirar o comentario quando fizer a tabela de categorias no back-end
+    //
+    // useEffect(() => {
 
-    useEffect(() => {
+    //     fetch('http://localhost:5000/categories',
+    //     {
+    //         method:'GET',
+    //         headers:{'Content-Type' : 'application/json'}
+    //     })
+    //     .then(
+    //         (resp)=>resp.json()
+    //         )
+    //     .then(
+    //         (data) => {
+    //             setCategories(data)
+    //             console.log(data)
+    //         }
+    //     )
+    //     .catch(
+    //         (error)=>{
+    //             console.log(error)
+    //         }
+    //     )}, [])
+    ///////
 
-        fetch('http://localhost:5000/categories',
-        {
-            method:'GET',
-            headers:{'Content-Type' : 'application/json'}
-        })
-        .then(
-            (resp)=>resp.json()
-            )
-        .then(
-            (data) => {
-                setCategories(data)
-                console.log(data)
-            }
-        )
-        .catch(
-            (error)=>{
-                console.log(error)
-            }
-        )}, [])
 
     function handlerChangerBook(event){
         setBook({...book, [event.target.name] : event.target.value})
-        // console.log(book)
+        console.log(book)
     }
 
-    function handlerChangerCategory(event){
-        setBook({...book, category:{
-            id: event.target.name,
-            category: event.target.options[event.target.selectedIndex].text
-        }})
-        // console.log(book)
-    }
+
+    //
+    //Tirar o comentario quando a tabela for feita no backend
+    //
+    // function handlerChangerCategory(event){
+    //     setBook({...book, category:{
+    //         id: event.target.name,
+    //         category: event.target.options[event.target.selectedIndex].text
+    //     }})
+    //     // console.log(book)
+    // }
 
     function createBook(book){
-        fetch('http://localhost:5000/books',
+        fetch('http://localhost:5000/inserirLivro',
         {
             method:'POST',
-            headers:{'Content-Type' : 'appliation/json'}
+            mode:'cors',
+            headers:{   
+                        'Content-Type' : 'application/json',
+                        'Acess-Control-Allow-Origin': '*',
+                        'Acess-Control-Allow-Headers': '*'
+                    }
+            
         ,
         body: JSON.stringify(book)
     })
@@ -93,8 +107,8 @@ export default function NewBook(){
 
                 <Input 
                     type="text"
-                    name="nome_autor"
-                    id="nome_autor"
+                    name="autor_livro"
+                    id="autor_livro"
                     placeholder="digite o titulo do autor"
                     text="digite o titulo do autor"
                     handlerOnChange={handlerChangerBook}
@@ -109,12 +123,12 @@ export default function NewBook(){
                     handlerOnChange={handlerChangerBook}
                 />
 
-                <Select
+                {/* <Select
                 handlerOnChange={handlerChangerCategory}
                 name="categoria_id"
                 text="selecione a categoria do livro"
                 options={categories}
-                />
+                /> */}
 
                 <input 
                     type="submit"

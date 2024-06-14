@@ -7,42 +7,45 @@ import Select from "../components/Form/Select"
 export default function BookEdit(params){
     
     const [book, setBook] = useState({})
-    const [categories, setCategories] = useState([])
+    // const [categories, setCategories] = useState([])
     const navigate = useNavigate()
     
     useEffect(()=>{
-        fetch(`http://localhost:5000/books/${id}`,{
+        fetch(`http://localhost:5000/listagemLivro/${id}`,{
             method : 'GET',
+            mode:'cors',
             headers: {
-                'content-type':'application/json'
-        },
+                'content-type':'application/json',
+                'Acess-Control-Allow-Origin': '*',
+                'Acess-Control-Allow-Headers': '*'
+            },
         })
         .then((resp) => resp.json())
-        .then((data) => {setBook(data); console.log(data)})
+        .then((data) => {setBook(data.data); console.log(data)})
         .catch((err) => {console.log(err)})
 },[]);
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        fetch('http://localhost:5000/categories',
-        {
-            method:'GET',
-            headers:{'Content-Type' : 'application/json'}
-        })
-        .then(
-            (resp)=>resp.json()
-            )
-        .then(
-            (data) => {
-                setCategories(data)
-                console.log(data)
-            }
-        )
-        .catch(
-            (error)=>{
-                console.log(error)
-            }
-        )}, [])
+    //     fetch('http://localhost:5000/categories',
+    //     {
+    //         method:'GET',
+    //         headers:{'Content-Type' : 'application/json'}
+    //     })
+    //     .then(
+    //         (resp)=>resp.json()
+    //         )
+    //     .then(
+    //         (data) => {
+    //             setCategories(data)
+    //             console.log(data)
+    //         }
+    //     )
+    //     .catch(
+    //         (error)=>{
+    //             console.log(error)
+    //         }
+    //     )}, [])
 
     const {id} = useParams()
     console.log(id)
@@ -52,19 +55,24 @@ export default function BookEdit(params){
         console.log(book)
     }
 
-    function handlerChangerCategory(event){
-        setBook({...book, category:{
-            id: event.target.name,
-            category: event.target.options[event.target.selectedIndex].text
-        }})
-        console.log(book)
-    }
+    // function handlerChangerCategory(event){
+    //     setBook({...book, category:{
+    //         id: event.target.name,
+    //         category: event.target.options[event.target.selectedIndex].text
+    //     }})
+    //     console.log(book)
+    // }
 
     function editarLivro(book){
-        fetch(`http://localhost:5000/books/${book.id}`,
+        fetch(`http://localhost:5000/alterarLivro/`,
         {
-            method:'PATCH',
-            headers:{'Content-Type' : 'appliation/json'}
+            method:'PUT',
+            mode:'cors',
+            headers:{
+                'Content-Type' : 'application/json',
+                'Acess-Control-Allow-Origin': '*',
+                'Acess-Control-Allow-Headers': '*'
+            }
         ,
         body: JSON.stringify(book)
     })
@@ -107,11 +115,11 @@ export default function BookEdit(params){
 
                 <Input 
                     type="text"
-                    name="nome_autor"
-                    id="nome_autor"
+                    name="autor_livro"
+                    id="autor_livro"
                     placeholder="digite o titulo do autor"
                     text=""
-                    value={book.nome_autor}                    
+                    value={book.autor_livro}                    
                     handlerOnChange={handlerChangerBook}
                 />
 
@@ -125,13 +133,15 @@ export default function BookEdit(params){
                     handlerOnChange={handlerChangerBook}
                 /> 
 
+                {/* 
                 <Select
                     handlerOnChange={handlerChangerCategory}
                     name="categoria_id"
                     text="selecione a categoria do livro"
                     options={categories}
                     // value={book.category.category}
-                />
+                /> 
+                */}
 
                 <input type='submit' value="Editar Livro" />
 

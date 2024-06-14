@@ -11,6 +11,7 @@ export default function Book(){
     const [books, setBooks] = useState([])
     const [bookMessage, setBookMessage] = useState("")
 
+
     useEffect(()=>{
         fetch('http://localhost:5000/listagemLivros',{
             method : 'GET',
@@ -28,7 +29,6 @@ export default function Book(){
 
 
 
-
     const remove = (id) =>{
         fetch(`http://localhost:5000/excluirLivro/${id}`,{
             method : 'DELETE',
@@ -38,7 +38,7 @@ export default function Book(){
         })
         .then((resp) => resp.json())
         .then((data) => {
-            setBooks(books.filter((book_data)=> book_data.id !== id ))
+            setBooks(books.filter((book_data)=> book_data.id_livro !== id ))
             setBookMessage('OKUMURA OKUYASU NI ZA HANDO NI KESU ')
         })
         .catch((err) => {console.log(err)})
